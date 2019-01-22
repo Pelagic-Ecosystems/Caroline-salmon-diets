@@ -1,0 +1,9 @@
+V1
+Not Found
+NotFoundError
+"NotFoundError: Not Found
+    at Object.throw (/home/hakai/hakai-api/node_modules/koa/lib/context.js:96:11)
+    at next.then (/home/hakai/hakai-api/node_modules/koa-json-error/lib/middleware.js:52:58)
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:228:7)"
+404
