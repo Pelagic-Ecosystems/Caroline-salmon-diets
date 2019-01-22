@@ -1,0 +1,12 @@
+# Data dictionary
+  * Describe each variable
+
+hakai_id:
+  * Description: This is the primary key that allows us to join our results to our sample collection meta-data
+  * Units: NA
+  
+stock_1:
+  * The name of the genetic stock of sockeye salmon that the CBAYES algorithm estimated for our sample
+  * Units: See read me file for description of possible stocks
+  
+  

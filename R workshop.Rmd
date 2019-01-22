@@ -171,3 +171,79 @@ write_csv(max_weights, here("write_data", "max_weights.csv"))
 
 ```
 
+# Day 2
+
+Note that shortcut for <- is option + "-"
+
+## Tidy data in spreadsheets
+
+The functions we use to tidy data are:
+
+* tidyr::spread
+* tidyr::gather
+
+### spread()
+
+spread() takes three principal arguments:
+1. the data
+2. the _key_ column variable will become the new column names
+3. the value column variable which will fill the new column variables
+
+We are going to use the surveys dataset
+
+
+```{r}
+install.packages('tinytex') # for converting to PDFs
+
+surveys <- read_csv(here("read_data", "surveys.csv"))
+
+#create a wide data format of surveys using spread
+
+surveys_gw <- surveys %>% 
+  drop_na(weight) %>% 
+  group_by(species_id) %>% 
+  summarize(mean_weight = mean(weight))
+
+str(surveys_gw)
+  
+# now we want to spread the data set out into wide format
+
+wide_surveys_gw <- surveys_gw %>% 
+  spread(key = species_id, value = mean_weight)
+
+
+```
+
+### gather()
+
+gather() takes four arguments:
+
+1. data
+2. key
+3. value
+4. names of columns we use to fill the key variable (or drop)
+
+```{r}
+
+# now going back to long format from wide
+
+long_surveys <- wide_surveys_gw %>% 
+  gather(key = species_id, value = mean_weight)
+
+```
+
+## Sending tidy data
+
+### Change log
+
+* Update your change log with changes to raw data, or other significant changes or additions to project
+
+### Data dictionary
+
+* Create a data dictionary to define our variables
+
+```{r}
+
+
+
+```
